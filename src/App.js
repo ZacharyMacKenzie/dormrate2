@@ -1,7 +1,7 @@
 import "./App.css";
 import { Tabs, TabItem } from "@aws-amplify/ui-react";
-import { DormReview, ReviewList } from "./ui-components";
-import { Amplify } from "aws-amplify";
+import { ReviewCreateForm, ReviewList } from "./ui-components";
+import { Amplify, Auth } from "aws-amplify";
 
 Amplify.configure({
   Auth: {
@@ -11,7 +11,15 @@ Amplify.configure({
   },
 });
 
-function App({ signOut, user }) {
+async function signOutAmp() {
+  try {
+    await Auth.signOut();
+  } catch (error) {
+    console.log("error signing out: ", error);
+  }
+}
+
+function App() {
   return (
     <div className="App">
       <Tabs>
@@ -22,10 +30,10 @@ function App({ signOut, user }) {
         </TabItem>
         <TabItem title="New Review">
           <header className="App-header">
-            <DormReview />
+            <ReviewCreateForm />
           </header>
         </TabItem>
-        <TabItem title="Sign Out" onClick={signOut}>
+        <TabItem title="Sign Out" onClick={signOutAmp}>
           <header className="App-header"></header>
         </TabItem>
       </Tabs>

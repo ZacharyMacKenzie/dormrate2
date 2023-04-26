@@ -6,7 +6,7 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import { Button, Flex, Grid, TextField, View } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Review } from "../models";
 import { fetchByPath, validateField } from "./utils";
@@ -64,6 +64,20 @@ export default function ReviewCreateForm(props) {
     return validationResponse;
   };
   return (
+    <View
+      width="421px"
+      height="350px"
+      display="block"
+      gap="unset"
+      alignItems="unset"
+      justifyContent="unset"
+      position="relative"
+      borderRadius="15px"
+      padding="0px 0px 0px 0px"
+      backgroundColor="rgba(255,255,255,1)"
+      {...getOverrideProps(overrides, "DormReview")}
+      {...rest}
+    >
     <Grid
       as="form"
       rowGap="15px"
@@ -225,5 +239,7 @@ export default function ReviewCreateForm(props) {
         </Flex>
       </Flex>
     </Grid>
+    </View>
+
   );
 }
