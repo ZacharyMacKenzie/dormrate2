@@ -1,0 +1,6 @@
+type Review @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  universityName: String!
+  buildingName: String!
+  rating: String!
+}

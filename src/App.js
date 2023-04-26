@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Tabs, TabItem } from "@aws-amplify/ui-react";
+import { DormReview, ReviewList } from "./ui-components";
+import { Amplify } from "aws-amplify";
 
-function App() {
+Amplify.configure({
+  Auth: {
+    userPoolId: "us-east-2_UbsaCPOwn",
+    userPoolWebClientId: "3o70tuc527eirrhsfmt0tff3n8",
+    region: "us-east-2",
+  },
+});
+
+function App({ signOut, user }) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Tabs>
+        <TabItem title="Reviews">
+          <header className="App-header">
+            <ReviewList />
+          </header>
+        </TabItem>
+        <TabItem title="New Review">
+          <header className="App-header">
+            <DormReview />
+          </header>
+        </TabItem>
+        <TabItem title="Sign Out" onClick={signOut}>
+          <header className="App-header"></header>
+        </TabItem>
+      </Tabs>
     </div>
   );
 }

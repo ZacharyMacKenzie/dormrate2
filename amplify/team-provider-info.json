@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-dormrate2-staging-41821-authRole",
+      "UnauthRoleArn": "arn:aws:iam::809837771921:role/amplify-dormrate2-staging-41821-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::809837771921:role/amplify-dormrate2-staging-41821-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-dormrate2-staging-41821-deployment",
+      "UnauthRoleName": "amplify-dormrate2-staging-41821-unauthRole",
+      "StackName": "amplify-dormrate2-staging-41821",
+      "StackId": "arn:aws:cloudformation:us-east-2:809837771921:stack/amplify-dormrate2-staging-41821/6194cbe0-e3e9-11ed-998f-066776fecf85",
+      "AmplifyAppId": "d1qbaw448sm95n"
+    },
+    "categories": {
+      "auth": {
+        "DormRate2": {}
+      }
+    }
+  }
+}
